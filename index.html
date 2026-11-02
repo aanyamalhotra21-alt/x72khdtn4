@@ -64,12 +64,28 @@
     font-size: 0.8rem;
     opacity: 0.45;
   }
+  body { flex-direction: column; gap: 1.5rem; }
+  .buddies { display: flex; gap: 1.5rem; font-size: clamp(3rem, 10vw, 5.5rem); }
+  .buddies span { display: inline-block; animation: dance 0.8s ease-in-out infinite; }
+  .buddies span:nth-child(2) { animation-delay: 0.4s; }
+  @keyframes dance {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-22px) rotate(12deg); }
+  }
+  .gif {
+    max-width: min(320px, 70vw);
+    max-height: 30vh;
+    border-radius: 16px;
+    animation: pop 0.9s 0.3s cubic-bezier(.2,1.4,.4,1) both;
+  }
   canvas { position: fixed; inset: 0; pointer-events: none; }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
 <h1>I got a Co-op @ <em>SharkNinja</em> as a Product Design Engineer</h1>
+<div class="buddies" aria-hidden="true"><span>🦈</span><span>🥷</span></div>
+<img class="gif" src="funny.gif" alt="" onerror="this.style.display='none'">
 <div class="hint">tap anywhere for more confetti 🎉</div>
 <canvas id="c"></canvas>
 
